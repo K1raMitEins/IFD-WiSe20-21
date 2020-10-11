@@ -1,2 +1,3 @@
 # IFD-WiSe20-21
- Interface Design wöchentliche Aufgaben
+
+https://k1ramiteins.github.io/IFD-WiSe20-21/

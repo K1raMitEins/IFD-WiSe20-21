@@ -2,17 +2,54 @@
 
 window.addEventListener("load", function () {
 document.querySelector('button').addEventListener("click", function () {
+	
+	document.getElementById("button").remove();
+	document.getElementById("hinweis").innerHTML = 'Sag "Hilfe", um alle möglichen Sprachbefehle angezeigt zu bekommen.';
 
     var artyom = new Artyom();
 	
+	function startContinuousArtyom() {
+        artyom.fatality();
+        setTimeout(function () {
+            artyom.initialize({
+                lang: "de-DE",
+                continuous: true,
+                listen: true,
+                interimResults: true,
+                debug: true
+            }).then(function () {
+                console.log("Ready!");
+            });
+        }, 250);
+    }
+    startContinuousArtyom();
 	
+	artyom.when("NOT_COMMAND_MATCHED", function(){
+			console.log("Leider habe ich deine Frage nicht verstanden. Sag Hilfe, um alle möglichen Sprachbefehle angezeigt zu bekommen.");
+            artyom.say("Leider habe ich deine Frage nicht verstanden. Sag Hilfe, um alle möglichen Sprachbefehle angezeigt zu bekommen.");
+        });
+		
     artyom.addCommands({
         indexes: ["Hilfe"],
         action: function (i) {
             console.log("Hier ist eine Liste aller Sprachbefehle");
 			artyom.say("Hier ist eine Liste aller Sprachbefehle");
+		document.getElementById("hinweis").innerHTML = '';
+		document.getElementById("hilfe").innerHTML = 
+			'"Hilfe schließen"<br>"Öffne Einstellungen"<br>"Hallo Intranet"<br>"Guten Morgen Intranet"<br>"Was gibt´s neues?"<br>"Welche Kurse habe ich heute?"<br>"In welchem Raum findet (Kursname) statt?"<br>"Was sind meine nächsten Abgaben?"<br>"Öffne Datei (Dateiname) in (Kursname)"<br>"Öffne (Kursname)"<br>"Stopp"';
         }
 		});
+		
+		artyom.addCommands({
+        indexes: ["Hilfe schließen"],
+        action: function (i) {
+            console.log("Hilfe wird geschlossen");
+			artyom.say("Hilfe wird geschlossen");
+		document.getElementById("hilfe").innerHTML = '';
+		document.getElementById("hinweis").innerHTML = 'Sag "Hilfe", um alle möglichen Sprachbefehle angezeigt zu bekommen.';
+        }
+		});
+		
 		
 	artyom.addCommands({
         indexes: ["Öffne Einstellungen"],
@@ -55,17 +92,6 @@ document.querySelector('button').addEventListener("click", function () {
             console.log("Soll ich dir alle heutigen Kurse vorlesen oder nur die nächsten zwei?");
 			artyom.say("Soll ich dir alle heutigen Kurse vorlesen oder nur die nächsten zwei?");
         }
-		// if (indexes: ["Alle"]) {
-			// action: function (i) {
-            // console.log("Deine heutigen Kurse sind: (Zeitraum): (Kurs) und (Zeitraum): (Kurs)");
-			// artyom.say("Deine heutigen Kurse sind: (Zeitraum): (Kurs) und (Zeitraum): (Kurs)");
-			// }
-		// if (indexes: ["Die nächsten zwei"]) {
-			// action: function (i) {
-            // console.log("Deine nächsten zwei Kurse sind: (Zeitraum): (Kurs) und (Zeitraum): (Kurs)");
-			// artyom.say("Deine nächsten zwei Kurse sind: (Zeitraum): (Kurs) und (Zeitraum): (Kurs)");
-			// }
-		// }
 		});
 		
 
@@ -131,33 +157,10 @@ document.querySelector('button').addEventListener("click", function () {
 			artyom.say("gestoppt");
         }
 		});
-		
-
-	artyom.addCommands({
-        indexes: ["vsfjgcyhkdb"],
-        action: function (i) {
-            console.log("Leider habe ich deine Frage nicht verstanden. Sag Hilfe, um alle möglichen Sprachbefehle angezeigt zu bekommen");
-			artyom.say("Leider habe ich deine Frage nicht verstanden. Sag Hilfe, um alle möglichen Sprachbefehle angezeigt zu bekommen");
-        }
-    });
+			
 	
 	
-	
-    function startContinuousArtyom() {
-        artyom.fatality();
-        setTimeout(function () {
-            artyom.initialize({
-                lang: "de-DE",
-                continuous: true,
-                listen: true,
-                interimResults: true,
-                debug: true
-            }).then(function () {
-                console.log("Ready!");
-            });
-        }, 250);
-    }
-    startContinuousArtyom();
+    
 });
 });
 //# sourceMappingURL=playgroud-artyom-script.js.map

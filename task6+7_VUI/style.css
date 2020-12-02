@@ -1,0 +1,42 @@
+
+body {
+	background-color:white;
+	
+}
+
+button {
+	cursor: pointer;
+	transition-duration: 0.4s;
+	background-color: rgb(131, 184, 26);
+	border: none;
+	color: #393939;
+	padding: 8px 38px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 1.7em;
+	border-radius: 150px;
+	position: relative;
+	top: 20vh;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1), 0 6px 20px 0 rgba(0,0,0,0.1);
+
+}
+
+#button-div {
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+}
+
+button:hover {
+	background-color: rgba(131, 184, 26, 0.7);
+}
+
+p, #hilfe, #hinweis {
+	color: rgb (112, 113, 115);
+	text-decoration: none;
+	font-size: 1em;
+	font-family: Arial;
+	text-align: center;
+	margin: 10% 0 0 0;
+}

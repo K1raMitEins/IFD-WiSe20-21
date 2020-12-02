@@ -36,7 +36,7 @@ document.querySelector('button').addEventListener("click", function () {
 			artyom.say("Hier ist eine Liste aller Sprachbefehle");
 		document.getElementById("hinweis").innerHTML = '';
 		document.getElementById("hilfe").innerHTML = 
-			'"Hilfe schließen"<br>"Öffne Einstellungen"<br>"Hallo Intranet"<br>"Guten Morgen Intranet"<br>"Was gibt´s neues?"<br>"Welche Kurse habe ich heute?"<br>"In welchem Raum findet (Kursname) statt?"<br>"Was sind meine nächsten Abgaben?"<br>"Öffne Datei (Dateiname) in (Kursname)"<br>"Öffne (Kursname)"<br>"Stopp"';
+			'"Hilfe schließen"<br>"Hallo Intranet"<br>"Guten Morgen Intranet"<br>"Was gibt´s neues?"<br>"Welche Kurse habe ich heute?"<br>"In welchem Raum findet (Kursname) statt?"<br>"Was sind meine nächsten Abgaben?"<br>';
         }
 		});
 		
